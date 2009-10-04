@@ -1,0 +1,52 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Frame name="abstractFrame" hidden="true" virtual="true" parent="UIParent">
+    <!-- set the size of the frame -->
+    <Size>
+      <AbsDimension x="45" y="20"/>
+    </Size>
+    <!-- set where the frame will be anchored -->
+    <Anchors>
+      <Anchor point="CENTER" />
+    </Anchors>
+    <!-- set the parameters for the layers of the frame -->
+    <Layers>
+      <Layer level="BACKGROUND">
+        <Texture name="$parent_Background" setAllPoints="true">
+                        <!-- Texture has blue color wit 50% alpha -->
+          <Color r="0" g="0" b="1" a="0.5" />
+        </Texture>
+      </Layer>
+    </Layers>
+  </Frame>
+  
+  <Frame name="timerWindow" movable="true" hidden="false" inherits="abstractFrame">
+  <!-- set the parameters for the layers of the frame -->
+    <Scripts>
+        <OnLoad>
+            this:RegisterForDrag("LeftButton");
+        </OnLoad>
+        <OnMouseUp>
+        </OnMouseUp>
+        <OnDragStart>
+            CombatTimer_DragStart()
+        </OnDragStart>
+        <OnDragStop>
+            CombatTimer_DragStop()
+        </OnDragStop>
+    </Scripts>
+    <Layers>
+      <Layer level="ARTWORK">
+        <FontString name="$parent_Text" inherits="GameFontNormal" text="00:00">
+         <Anchors>
+            <Anchor point="LEFT" relativePoint="TOPLEFT">
+              <Offset>
+                <AbsDimension x="5" y="-10"/>
+              </Offset>
+            </Anchor>
+          </Anchors>
+        </FontString>
+      </Layer>
+    </Layers>
+  </Frame>
+
+</Ui>
