@@ -28,14 +28,14 @@ end
 
 function CombatTimer:PLAYER_REGEN_ENABLED()
   -- process the event
-  self:CancelTimer(self.mainTimer)
+  self:CancelTimer(self.mainTimer, true)
 --  timerWindow:Hide();
   print("Combat took "..convertSeconds(combatSeconds))
 end
 
 function CombatTimer:PLAYER_DEAD()
   -- process the event
-  self:CancelTimer(self.mainTimer)
+  self:CancelTimer(self.mainTimer, true)
 --  timerWindow:Hide();
   print("Combat took "..convertSeconds(combatSeconds))
 end
